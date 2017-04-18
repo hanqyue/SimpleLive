@@ -1,0 +1,73 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "cn.coder_felicia.simplelive"
+        minSdkVersion 21
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.1.0'
+    compile 'com.android.support:design:25.1.0'
+    compile 'com.android.support:cardview-v7:25.0.+'
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    testCompile 'junit:junit:4.12'
+    //butterknife: View注入框架
+    compile 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
+
+
+    //注：retrofit 的simplexml适合解析小文件
+//    compile ('com.squareup.retrofit2:converter-simplexml:2.0.1'){
+//        exclude group: 'xpp3', module: 'xpp3'
+//        exclude group: 'stax', module: 'stax-api'
+//        exclude group: 'stax', module: 'stax'
+//    }
+    compile 'io.reactivex:rxjava:1.1.0'//Rxjava
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'//retrofit
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'//配合Rxjava 使用
+    compile 'com.squareup.retrofit2:converter-scalars:2.1.0'
+    compile 'io.reactivex:rxandroid:1.1.0'//rxandroid
+    compile 'com.squareup.okhttp3:logging-interceptor:3.1.2'//okhttp3
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'//转换器，请求结果转换成Model
+
+    //权限申请
+    compile 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.3@aar'
+   // compile 'com.android.support:recyclerview-v7:25.0.0'
+    //rxlifecycle
+
+    // compile 'com.trello:rxlifecycle:1.0'
+    // 如果你想绑定到Android特定的生命周期
+    //compile 'com.trello:rxlifecycle-android:1.0'
+
+// 如果你想预先写 Activities and Fragments，子集作为提供
+  //  compile 'com.trello:rxlifecycle-components:1.0'
+
+// If you want to use Navi for providers如果你想使用navi供应
+   // compile 'com.trello:rxlifecycle-navi:1.0'
+
+// If you want to use Kotlin syntax如果你想用Kotlin的语法
+ //   compile 'com.trello:rxlifecycle-kotlin:1.0'
+
+
+
+
+}
